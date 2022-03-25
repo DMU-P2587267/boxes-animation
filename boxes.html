@@ -2,9 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+  </head>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
+    <style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <img id="plane" src="https://cdn.pixabay.com/photo/2018/09/13/10/18/aircraft-3674305_640.png" />
     <!-- source: https://pixabay.com/de/flugzeuge-propeller-aircraft-alt-3674305/ -->
 
@@ -23,6 +26,10 @@ $(function() {
     animatePlane();
 });
 
-</script>
+
+body { overflow: hidden }
+#plane { position: absolute; left: -1000px; width: 50% /* <- not relevant for the animation */ }
+
+</style>
 </body>
 </html>
