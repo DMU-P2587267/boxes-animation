@@ -6,66 +6,37 @@
 
 <title>Image Mover</title>
 
+
+
+<body class="body">
+
+
+<img src="img/kunai.png" id="plane"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+$(function() {
+    var img = $("#plane"),
+        width = img.get(0).width,
+        screenWidth = $(window).width(),
+        duration = 5000;
+
+    function animatePlane() {
+        img.css("left", -width).animate({
+            "left": screenWidth
+        }, duration, animatePlane);
+    }
+
+    animatePlane();
+});
+
 <style>
-DIV.movable { position:absolute; }
+
+body { overflow: hidden }
+#plane { position: absolute; left: -1000px; width: 50% /* <- not relevant for the animation */ }
+
 </style>
-</head>
-<script language="javascript">
-
-
-function Start() {
-
-var x = 5; //Starting Location - left
-var y = 5; //Starting Location - top
-var dest_x = Math.floor(Math.random()*650);  //Ending Location - left
-var dest_y = 500;   //Ending Location - top
-var interval = 10; //Move 10px every initialization
-	moveImage();
-
-}
-
-function NewDest() {
-
-var x = 5; //Starting Location - left
-var y = 5; //Starting Location - top
-var dest_x = Math.floor(Math.random()*650);  //Ending Location - left
-var dest_y = 500;   //Ending Location - top
-var interval = 10; //Move 10px every initialization
-	moveImage();
-}
-
-
-function moveImage() {
-	//Keep on moving the image till the target is achieved
-	if(x < dest_x) x = x + interval;
-	if(y < dest_y) y = y + interval;
-
-	//Move the image to the new location
-	document.getElementById("ufo").style.top  = y+'px';
-	document.getElementById("ufo").style.left = x+'px';
-
-	if ((x+interval < dest_x) && (y+interval < dest_y)) {
-		//Keep on calling this function every 100 microsecond
-		//	till the target location is reached
-		window.setTimeout('moveImage()',30);
-
-	if (x == dest_x) && (y == dest_y) {
-		NewDest();
-		}
-
-
-
-
-
-
-
-}
-}
-</script>
-<body onload="Start()">
-<div id="ufo" class="movable">
-<img src="naruto1.jpg" alt="naruto" WIDTH = 30/>
-</div>
 
 </body>
 </html>
+
