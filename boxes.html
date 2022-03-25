@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Image Mover</title>
+
+<style>
+body { overflow: hidden }
+#kunai { position: absolute; left: -1000px; width: 50% /* <- not relevant for the animation */ }
+</style>
+
+
+<img src="img/kunai.png" id="kunai"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+$(function() {
+    var img = $("#kunai"),
+        width = img.get(0).width,
+        screenWidth = $(window).width(),
+        duration = 5000;
+
+    function animateKunai() {
+        img.css("left", -width).animate({
+            "left": screenWidth
+        }, duration, animateKunai);
+    }
+
+    animateKunai();
+});
+
+
+</script>
+</body>
+</html>
