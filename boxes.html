@@ -7,13 +7,14 @@
 <title>Image Mover</title>
 
 <style>
-
-<body class="body">
+body { overflow: hidden }
+#plane { position: absolute; left: -1000px; width: 50% /* <- not relevant for the animation */ }
+</style>
 
 
 <img src="img/kunai.png" id="plane"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<script>
 
 $(function() {
     var img = $("#plane"),
@@ -30,12 +31,7 @@ $(function() {
     animatePlane();
 });
 
-<style>
 
-body { overflow: hidden }
-#plane { position: absolute; left: -1000px; width: 50% /* <- not relevant for the animation */ }
-
-</style>
-
+</script>
 </body>
 </html>
